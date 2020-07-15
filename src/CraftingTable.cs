@@ -114,6 +114,11 @@ namespace SwtorCrafting
         public static IEnumerable<Item> ComputeRequiredItemsToCraft(string itemNameToCraft, int quantity)
         {
             var requiredItems = new List<Item>();
+            if (!items.ContainsKey(itemNameToCraft))
+            {
+                return requiredItems;
+            }
+
             var itemToCraft = items[itemNameToCraft];
             if (itemToCraft.Schematic == null)
             {
@@ -122,30 +127,22 @@ namespace SwtorCrafting
 
             for (var j = 0; j < quantity; j++)
             {
+                requiredItems.Add(itemToCraft);
                 foreach (var component in itemToCraft.Schematic.SchematicRequirements)
                 {
-                    if (!items.ContainsKey(component.Item.Name))
+                    for (var i = 0; i < component.Quantity; i++)
                     {
-                        for (var i = 0; i < component.Quantity; i++)
-                        {
-                            requiredItems.Add(component.Item);
-                        }
-                    }
-                    else
-                    {
-                        for (var i = 0; i < component.Quantity; i++)
-                        {
-                            requiredItems.AddRange(ComputeRequiredItemsToCraft(component.Item.Name, component.Quantity));
-                        }
+                        requiredItems.Add(component.Item);
+                        requiredItems.AddRange(ComputeRequiredItemsToCraft(component.Item.Name, component.Quantity));
                     }
                 }
             }
 
-            // if (itemToCraft.Schematic.DeconstructionSourceItem != null)
-            // {
-            //     var deconstructItem = items[itemToCraft.Schematic.DeconstructionSourceItem.Name];
-            //     requiredItems.AddRange(ComputeRequiredItemsToCraft(deconstructItem.Name, deconstructItem.DeconstructItemExperiment.RequiredItemCount));
-            // }
+            if (itemToCraft.Schematic.DeconstructionSourceItem != null)
+            {
+                var deconstructItem = items[itemToCraft.Schematic.DeconstructionSourceItem.Name];
+                requiredItems.AddRange(ComputeRequiredItemsToCraft(deconstructItem.Name, deconstructItem.DeconstructItemExperiment.RequiredItemCount));
+            }
 
             return requiredItems;
         }
