@@ -127,7 +127,7 @@ namespace SwtorCrafting
 
             for (var j = 0; j < quantity; j++)
             {
-                requiredItems.Add(itemToCraft);
+                // requiredItems.Add(itemToCraft);
                 foreach (var component in itemToCraft.Schematic.SchematicRequirements)
                 {
                     for (var i = 0; i < component.Quantity; i++)
