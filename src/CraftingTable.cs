@@ -126,13 +126,17 @@ namespace SwtorCrafting
 
             for (var j = 0; j < quantity; j++)
             {
-                // requiredItems.Add(itemToCraft);
+                requiredItems.Add(itemToCraft);
                 foreach (var component in itemToCraft.Schematic.SchematicRequirements)
                 {
                     for (var i = 0; i < component.Quantity; i++)
                     {
-                        requiredItems.Add(component.Item);
-                        requiredItems.AddRange(ComputeRequiredItemsToCraft(component.Item.Name, component.Quantity));
+                        if (!items.ContainsKey(component.Item.Name) || items[component.Item.Name].Schematic == null)
+                        {
+                            requiredItems.Add(component.Item);
+                        }
+
+                        requiredItems.AddRange(ComputeRequiredItemsToCraft(component.Item.Name, 1));
                     }
                 }
             }
