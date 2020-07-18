@@ -2,7 +2,7 @@ using Xunit;
 
 namespace SwtorCrafting.Tests
 {
-    public class UnitTest1
+    public class DeconstructItemExperimentTests
     {
         [Fact]
         public void TestRequiredItemCount9020()
