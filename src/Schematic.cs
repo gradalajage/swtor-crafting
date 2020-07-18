@@ -4,6 +4,11 @@ namespace SwtorCrafting
 {
     public class Schematic
     {
+        public Schematic(string itemName)
+        {
+            this.DeconstructionSourceItem = new Item(itemName);
+        }
+
         public Schematic(Item deconstructionSourceItem, IEnumerable<SchematicRequirement> schematicRequirements)
         {
             this.SchematicRequirements = schematicRequirements;

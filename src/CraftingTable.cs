@@ -19,7 +19,7 @@ namespace SwtorCrafting
         private static Item premiumKyrpraxMedpac = new Item(
             "Premium Kyrprax Medpac",
             0.2f,
-            new Item("Prototype Kyrprax Medpac"),
+            new Schematic("Prototype Kyrprax Medpac"),
             new Schematic(
                 null,
                 new SchematicRequirement[] {
@@ -32,7 +32,7 @@ namespace SwtorCrafting
         private static Item prototypeKyrpraxMedpac = new Item(
             "Prototype Kyrprax Medpac",
             0.2f,
-            new Item("Advanced Kyrprax Medpac"),
+            new Schematic("Advanced Kyrprax Medpac"),
             new Schematic(
                 new Item("Premium Kyrprax Medpac"),
                 new SchematicRequirement[] {
@@ -72,7 +72,7 @@ namespace SwtorCrafting
         private static Item advancedKyrpraxMedpac = new Item(
             "Advanced Kyrprax Medpac",
             0.05f,
-            new Item("Advanced Kyrprax Medpac MK-2"),
+            new Schematic("Advanced Kyrprax Medpac MK-2"),
             new Schematic(
                 new Item("Prototype Kyrprax Medpac"),
                 new SchematicRequirement[] {

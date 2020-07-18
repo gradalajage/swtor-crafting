@@ -15,15 +15,15 @@ namespace SwtorCrafting
             this.Schematic = schematic;
         }
 
-        public Item(string name, float deconstructYieldsSchematicProbability, Item deconstructYieldsItem, Schematic schematic)
+        public Item(string name, float deconstructYieldsSchematicProbability, Schematic schematicLearnedUponDeconstruct, Schematic schematic)
         {
             this.DeconstructItemExperiment = new DeconstructItemExperiment(this.deconstructSuccessProbabilityThreshold, deconstructYieldsSchematicProbability);
-            this.DeconstructYieldsItem = deconstructYieldsItem;
+            this.SchematicLearnedUponDeconstruct = schematicLearnedUponDeconstruct;
             this.Name = name;
             this.Schematic = schematic;
         }
 
-        public Item DeconstructYieldsItem { get; private set; }
+        public Schematic SchematicLearnedUponDeconstruct { get; private set; }
 
         public Schematic Schematic { get; private set; }
 
