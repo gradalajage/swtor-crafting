@@ -95,7 +95,6 @@ namespace SwtorCrafting
                     new SchematicRequirement(new Item("Premium Intravenous Injector"), 10),
                     new SchematicRequirement(new Item("Prototype Intravenous Injector"), 10),
                     new SchematicRequirement(new Item("Artifact Intravenous Injector"), 10),
-                    new SchematicRequirement(new Item("Artifact Intravenous Injector"), 5),
                     new SchematicRequirement(new Item("Legendary Ember"), 5),
                 }
             )
