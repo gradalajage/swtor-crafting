@@ -8,11 +8,14 @@ namespace SwtorCrafting
             "Premium Curious Cell Graft",
             new Schematic(
                 null,
-                new SchematicRequirement[] {
-                    new SchematicRequirement(new Item("Standard Recombinator"), 8),
-                    new SchematicRequirement(new Item("Premium Unknown Microorganism"), 6),
-                    new SchematicRequirement(new Item("Premium Virulent Extract"), 6),
-                }
+                new Recipe(
+                    "Premium Curious Cell Graft",
+                    new Ingredient[] {
+                        new Ingredient(new Item("Standard Recombinator"), 8),
+                        new Ingredient(new Item("Premium Unknown Microorganism"), 6),
+                        new Ingredient(new Item("Premium Virulent Extract"), 6),
+                    }
+                )
             )
         );
 
@@ -22,10 +25,13 @@ namespace SwtorCrafting
             new Schematic("Prototype Kyrprax Medpac"),
             new Schematic(
                 null,
-                new SchematicRequirement[] {
-                    new SchematicRequirement(new Item("Premium Curious Cell Graft"), 2),
-                    new SchematicRequirement(new Item("Premium Intravenous Injector"), 10),
-                }
+                new Recipe(
+                    "Premium Kyrprax Medpac",
+                    new Ingredient[] {
+                        new Ingredient(new Item("Premium Curious Cell Graft"), 2),
+                        new Ingredient(new Item("Premium Intravenous Injector"), 10),
+                    }
+                )
             )
         );
 
@@ -35,11 +41,14 @@ namespace SwtorCrafting
             new Schematic("Advanced Kyrprax Medpac"),
             new Schematic(
                 new Item("Premium Kyrprax Medpac"),
-                new SchematicRequirement[] {
-                    new SchematicRequirement(new Item("Premium Curious Cell Graft"), 2),
-                    new SchematicRequirement(new Item("Premium Intravenous Injector"), 10),
-                    new SchematicRequirement(new Item("Prototype Intravenous Injector"), 10),
-                }
+                new Recipe(
+                    "Prototype Kyrprax Medpac",
+                    new Ingredient[] {
+                        new Ingredient(new Item("Premium Curious Cell Graft"), 2),
+                        new Ingredient(new Item("Premium Intravenous Injector"), 10),
+                        new Ingredient(new Item("Prototype Intravenous Injector"), 10),
+                    }
+                )
             )
         );
 
@@ -47,12 +56,15 @@ namespace SwtorCrafting
             "Prototype Curious Cell Graft",
             new Schematic(
                 null,
-                new SchematicRequirement[] {
-                    new SchematicRequirement(new Item("Premium Recombinator"), 8),
-                    new SchematicRequirement(new Item("Prototype Unknown Microorganism"), 6),
-                    new SchematicRequirement(new Item("Prototype Virulent Extract"), 6),
-                    new SchematicRequirement(new Item("Premium Curious Cell Graft"), 2),
-                }
+                new Recipe(
+                    "Prototype Curious Cell Graft",
+                    new Ingredient[] {
+                        new Ingredient(new Item("Premium Recombinator"), 8),
+                        new Ingredient(new Item("Prototype Unknown Microorganism"), 6),
+                        new Ingredient(new Item("Prototype Virulent Extract"), 6),
+                        new Ingredient(new Item("Premium Curious Cell Graft"), 2),
+                    }
+                )
             )
         );
 
@@ -60,12 +72,15 @@ namespace SwtorCrafting
             "Artifact Curious Cell Graft",
             new Schematic(
                 null,
-                new SchematicRequirement[] {
-                    new SchematicRequirement(new Item("Prototype Recombinator"), 12),
-                    new SchematicRequirement(new Item("Artifact Unknown Microorganism"), 12),
-                    new SchematicRequirement(new Item("Artifact Virulent Extract"), 12),
-                    new SchematicRequirement(new Item("Prototype Curious Cell Graft"), 3),
-                }
+                new Recipe(
+                    "Artifact Curious Cell Graft",
+                    new Ingredient[] {
+                        new Ingredient(new Item("Prototype Recombinator"), 12),
+                        new Ingredient(new Item("Artifact Unknown Microorganism"), 12),
+                        new Ingredient(new Item("Artifact Virulent Extract"), 12),
+                        new Ingredient(new Item("Prototype Curious Cell Graft"), 3),
+                    }
+                )
             )
         );
 
@@ -75,12 +90,15 @@ namespace SwtorCrafting
             new Schematic("Advanced Kyrprax Medpac MK-2"),
             new Schematic(
                 new Item("Prototype Kyrprax Medpac"),
-                new SchematicRequirement[] {
-                    new SchematicRequirement(new Item("Artifact Curious Cell Graft"), 2),
-                    new SchematicRequirement(new Item("Premium Intravenous Injector"), 10),
-                    new SchematicRequirement(new Item("Prototype Intravenous Injector"), 10),
-                    new SchematicRequirement(new Item("Artifact Intravenous Injector"), 10),
-                }
+                new Recipe(
+                    "Advanced Kyrprax Medpac",
+                    new Ingredient[] {
+                        new Ingredient(new Item("Artifact Curious Cell Graft"), 2),
+                        new Ingredient(new Item("Premium Intravenous Injector"), 10),
+                        new Ingredient(new Item("Prototype Intravenous Injector"), 10),
+                        new Ingredient(new Item("Artifact Intravenous Injector"), 10),
+                    }
+                )
             )
         );
 
@@ -90,13 +108,16 @@ namespace SwtorCrafting
             null,
             new Schematic(
                 new Item("Advanced Kyrprax Medpac"),
-                new SchematicRequirement[] {
-                    new SchematicRequirement(new Item("Artifact Curious Cell Graft"), 5),
-                    new SchematicRequirement(new Item("Premium Intravenous Injector"), 10),
-                    new SchematicRequirement(new Item("Prototype Intravenous Injector"), 10),
-                    new SchematicRequirement(new Item("Artifact Intravenous Injector"), 10),
-                    new SchematicRequirement(new Item("Legendary Ember"), 5),
-                }
+                new Recipe(
+                    "Advanced Kyrprax Medpac MK-2",
+                    new Ingredient[] {
+                        new Ingredient(new Item("Artifact Curious Cell Graft"), 5),
+                        new Ingredient(new Item("Premium Intravenous Injector"), 10),
+                        new Ingredient(new Item("Prototype Intravenous Injector"), 10),
+                        new Ingredient(new Item("Artifact Intravenous Injector"), 10),
+                        new Ingredient(new Item("Legendary Ember"), 5),
+                    }
+                )
             )
         );
 
@@ -110,44 +131,42 @@ namespace SwtorCrafting
             { "Advanced Kyrprax Medpac MK-2", advancedKyrpraxMedpacMk2 }
         };
 
-        public static IEnumerable<Item> ComputeRequiredItemsToCraft(string itemNameToCraft, int quantity)
+        public static IIngredients GetRequiredIngredients(string itemNameToCraft, int quantity, Ingredients ingredients = null)
         {
-            var requiredItems = new List<Item>();
+            if (ingredients == null)
+            {
+                ingredients = new Ingredients();
+            }
+
             if (!items.ContainsKey(itemNameToCraft))
             {
-                return requiredItems;
+                return ingredients;
             }
 
             var itemToCraft = items[itemNameToCraft];
             if (itemToCraft.Schematic == null)
             {
-                return requiredItems;
+                return ingredients;
             }
 
-            for (var j = 0; j < quantity; j++)
+            ingredients.AddIngredient(new Ingredient(itemToCraft, quantity));
+            foreach (var ingredient in itemToCraft.Schematic.Recipe.Ingredients.GetIngredients())
             {
-                requiredItems.Add(itemToCraft);
-                foreach (var component in itemToCraft.Schematic.SchematicRequirements)
+                if (!items.ContainsKey(ingredient.Item.Name) || items[ingredient.Item.Name].Schematic == null)
                 {
-                    for (var i = 0; i < component.Quantity; i++)
-                    {
-                        if (!items.ContainsKey(component.Item.Name) || items[component.Item.Name].Schematic == null)
-                        {
-                            requiredItems.Add(component.Item);
-                        }
-
-                        requiredItems.AddRange(ComputeRequiredItemsToCraft(component.Item.Name, 1));
-                    }
+                    ingredients.AddIngredient(new Ingredient(ingredient.Item, ingredient.Quantity * quantity));
                 }
+
+                GetRequiredIngredients(ingredient.Item.Name, ingredient.Quantity * quantity, ingredients);
             }
 
             if (itemToCraft.Schematic.DeconstructionSourceItem != null)
             {
                 var deconstructItem = items[itemToCraft.Schematic.DeconstructionSourceItem.Name];
-                requiredItems.AddRange(ComputeRequiredItemsToCraft(deconstructItem.Name, deconstructItem.DeconstructItemExperiment.RequiredItemCount));
+                GetRequiredIngredients(deconstructItem.Name, deconstructItem.DeconstructItemExperiment.RequiredItemCount, ingredients);
             }
 
-            return requiredItems;
+            return ingredients;
         }
     }
 }

@@ -6,47 +6,47 @@ namespace SwtorCrafting
     public class CraftingTableTests
     {
         [Fact]
-        public void RequiredItemsToCraftStandardRecombinatorx1()
+        public void ingredientsToCraftStandardRecombinatorx1()
         {
-            var requiredItems = CraftingTable.ComputeRequiredItemsToCraft("Standard Recombinator", 1);
-            Assert.Equal(0, requiredItems.ToList().Count);
+            var ingredients = CraftingTable.GetRequiredIngredients("Standard Recombinator", 1);
+            Assert.Equal(0, ingredients.GetIngredients().Select(i => i.Quantity).Sum());
         }
 
         [Fact]
-        public void RequiredItemsToCraftPremiumCuriousCellGraftx1()
+        public void ingredientsToCraftPremiumCuriousCellGraftx1()
         {
-            var requiredItems = CraftingTable.ComputeRequiredItemsToCraft("Premium Curious Cell Graft", 1);
-            Assert.Equal(21, requiredItems.ToList().Count);
-            Assert.Equal(1, requiredItems.Where(i => i.Name == "Premium Curious Cell Graft").Count());
-            Assert.Equal(8, requiredItems.Where(i => i.Name == "Standard Recombinator").Count());
-            Assert.Equal(6, requiredItems.Where(i => i.Name == "Premium Unknown Microorganism").Count());
-            Assert.Equal(6, requiredItems.Where(i => i.Name == "Premium Virulent Extract").Count());
+            var ingredients = CraftingTable.GetRequiredIngredients("Premium Curious Cell Graft", 1);
+            Assert.Equal(21, ingredients.GetIngredients().Select(i => i.Quantity).Sum());
+            Assert.Equal(1, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Curious Cell Graft").Quantity);
+            Assert.Equal(8, ingredients.GetIngredients().Single(i => i.Item.Name == "Standard Recombinator").Quantity);
+            Assert.Equal(6, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Unknown Microorganism").Quantity);
+            Assert.Equal(6, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Virulent Extract").Quantity);
         }
         [Fact]
-        public void RequiredItemsToCraftPrototypeKyrpraxMedpacx1()
+        public void ingredientsToCraftPrototypeKyrpraxMedpacx1()
         {
-            var requiredItems = CraftingTable.ComputeRequiredItemsToCraft("Prototype Kyrprax Medpac", 1);
-            Assert.Equal(646, requiredItems.ToList().Count);
-            Assert.Equal(11, requiredItems.Where(i => i.Name == "Premium Kyrprax Medpac").Count());
-            Assert.Equal(24, requiredItems.Where(i => i.Name == "Premium Curious Cell Graft").Count());
-            Assert.Equal(192, requiredItems.Where(i => i.Name == "Standard Recombinator").Count());
-            Assert.Equal(144, requiredItems.Where(i => i.Name == "Premium Virulent Extract").Count());
-            Assert.Equal(144, requiredItems.Where(i => i.Name == "Premium Unknown Microorganism").Count());
-            Assert.Equal(120, requiredItems.Where(i => i.Name == "Premium Intravenous Injector").Count());
-            Assert.Equal(1, requiredItems.Where(i => i.Name == "Prototype Kyrprax Medpac").Count());
-            Assert.Equal(10, requiredItems.Where(i => i.Name == "Prototype Intravenous Injector").Count());
+            var ingredients = CraftingTable.GetRequiredIngredients("Prototype Kyrprax Medpac", 1);
+            Assert.Equal(646, ingredients.GetIngredients().Select(i => i.Quantity).Sum());
+            Assert.Equal(11, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Kyrprax Medpac").Quantity);
+            Assert.Equal(24, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Curious Cell Graft").Quantity);
+            Assert.Equal(192, ingredients.GetIngredients().Single(i => i.Item.Name == "Standard Recombinator").Quantity);
+            Assert.Equal(144, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Virulent Extract").Quantity);
+            Assert.Equal(144, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Unknown Microorganism").Quantity);
+            Assert.Equal(120, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Intravenous Injector").Quantity);
+            Assert.Equal(1, ingredients.GetIngredients().Single(i => i.Item.Name == "Prototype Kyrprax Medpac").Quantity);
+            Assert.Equal(10, ingredients.GetIngredients().Single(i => i.Item.Name == "Prototype Intravenous Injector").Quantity);
         }
         [Fact]
-        public void RequiredItemsToCraftPremiumKyrpraxMedpacx11()
+        public void ingredientsToCraftPremiumKyrpraxMedpacx11()
         {
-            var requiredItems = CraftingTable.ComputeRequiredItemsToCraft("Premium Kyrprax Medpac", 11);
-            Assert.Equal(583, requiredItems.ToList().Count);
-            Assert.Equal(11, requiredItems.Where(i => i.Name == "Premium Kyrprax Medpac").Count());
-            Assert.Equal(22, requiredItems.Where(i => i.Name == "Premium Curious Cell Graft").Count());
-            Assert.Equal(176, requiredItems.Where(i => i.Name == "Standard Recombinator").Count());
-            Assert.Equal(132, requiredItems.Where(i => i.Name == "Premium Virulent Extract").Count());
-            Assert.Equal(132, requiredItems.Where(i => i.Name == "Premium Unknown Microorganism").Count());
-            Assert.Equal(110, requiredItems.Where(i => i.Name == "Premium Intravenous Injector").Count());
+            var ingredients = CraftingTable.GetRequiredIngredients("Premium Kyrprax Medpac", 11);
+            Assert.Equal(583, ingredients.GetIngredients().Select(i => i.Quantity).Sum());
+            Assert.Equal(11, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Kyrprax Medpac").Quantity);
+            Assert.Equal(22, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Curious Cell Graft").Quantity);
+            Assert.Equal(176, ingredients.GetIngredients().Single(i => i.Item.Name == "Standard Recombinator").Quantity);
+            Assert.Equal(132, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Virulent Extract").Quantity);
+            Assert.Equal(132, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Unknown Microorganism").Quantity);
+            Assert.Equal(110, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Intravenous Injector").Quantity);
         }
     }
 }
