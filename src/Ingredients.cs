@@ -29,6 +29,17 @@ namespace SwtorCrafting
             return this.ingredients.Values;
         }
 
+        public Ingredient GetIngredient(string itemName)
+        {
+            var item = new Item(itemName);
+            if (this.ingredients.ContainsKey(item))
+            {
+                return this.ingredients[item];
+            }
+
+            throw new KeyNotFoundException();
+        }
+
         public void AddIngredients(IIngredients ingredients)
         {
             foreach (var ingredient in ingredients.GetIngredients())
@@ -46,6 +57,37 @@ namespace SwtorCrafting
             }
 
             return stringBuilder.ToString();
+        }
+
+        public int Count()
+        {
+            return this.ingredients.Count;
+        }
+
+        public int GetTotalCost()
+        {
+            return this.GetIngredients().Sum(i => i.Cost);
+        }
+
+        public static int GetTotalCostOfIngredients(IIngredients ingredients)
+        {
+            var totalCost = 0;
+            foreach (var ingredient in ingredients.GetIngredients())
+            {
+                if (ingredient.Item.IsCraftable)
+                {
+                    continue;
+                }
+
+                totalCost += GetCostOfIngredient(ingredient);
+            }
+
+            return totalCost;
+        }
+
+        public static int GetCostOfIngredient(Ingredient ingredient)
+        {
+            return ingredient.Item.Cost * ingredient.Quantity;
         }
     }
 }

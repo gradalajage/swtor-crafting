@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
 
 namespace SwtorCrafting
 {
@@ -9,8 +6,16 @@ namespace SwtorCrafting
     {
         public static void Main(string[] args)
         {
-            var ingredients = CraftingTable.GetRequiredIngredients("Advanced Kyrprax Medpac MK-2", 1);
-            Console.WriteLine(ingredients.ToString());
+            var itemToCraft = "Advanced Kyrprax Medpac MK-2";
+            var quantityToCraft = 1;
+            var ingredient = CraftingTable.GetIngredientsToLearnSchematicsAndCraftItem(itemToCraft, quantityToCraft);
+            Console.WriteLine(ingredient.Collate().ToString());
+
+            Console.WriteLine("---");
+            Console.WriteLine(ingredient.ToString());
+
+            Console.WriteLine($"Total cost of ingredients: {ingredient.Cost}");
+            Console.WriteLine($"Cost of purchasing item on GTN: {CraftingTable.GetItem(itemToCraft).GtnCost * quantityToCraft}");
         }
     }
 }

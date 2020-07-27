@@ -8,14 +8,15 @@ namespace SwtorCrafting
         [Fact]
         public void ingredientsToCraftStandardRecombinatorx1()
         {
-            var ingredients = CraftingTable.GetRequiredIngredients("Standard Recombinator", 1);
-            Assert.Equal(0, ingredients.GetIngredients().Select(i => i.Quantity).Sum());
+            var ingredient = CraftingTable.GetIngredientsToLearnSchematicsAndCraftItem("Standard Recombinator", 1);
+            Assert.Null(ingredient);
         }
 
         [Fact]
         public void ingredientsToCraftPremiumCuriousCellGraftx1()
         {
-            var ingredients = CraftingTable.GetRequiredIngredients("Premium Curious Cell Graft", 1);
+            var ingredient = CraftingTable.GetIngredientsToLearnSchematicsAndCraftItem("Premium Curious Cell Graft", 1);
+            var ingredients = ingredient.Collate();
             Assert.Equal(21, ingredients.GetIngredients().Select(i => i.Quantity).Sum());
             Assert.Equal(1, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Curious Cell Graft").Quantity);
             Assert.Equal(8, ingredients.GetIngredients().Single(i => i.Item.Name == "Standard Recombinator").Quantity);
@@ -25,7 +26,8 @@ namespace SwtorCrafting
         [Fact]
         public void ingredientsToCraftPrototypeKyrpraxMedpacx1()
         {
-            var ingredients = CraftingTable.GetRequiredIngredients("Prototype Kyrprax Medpac", 1);
+            var ingredient = CraftingTable.GetIngredientsToLearnSchematicsAndCraftItem("Prototype Kyrprax Medpac", 1);
+            var ingredients = ingredient.Collate();
             Assert.Equal(646, ingredients.GetIngredients().Select(i => i.Quantity).Sum());
             Assert.Equal(11, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Kyrprax Medpac").Quantity);
             Assert.Equal(24, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Curious Cell Graft").Quantity);
@@ -39,7 +41,8 @@ namespace SwtorCrafting
         [Fact]
         public void ingredientsToCraftPremiumKyrpraxMedpacx11()
         {
-            var ingredients = CraftingTable.GetRequiredIngredients("Premium Kyrprax Medpac", 11);
+            var ingredient = CraftingTable.GetIngredientsToLearnSchematicsAndCraftItem("Premium Kyrprax Medpac", 11);
+            var ingredients = ingredient.Collate();
             Assert.Equal(583, ingredients.GetIngredients().Select(i => i.Quantity).Sum());
             Assert.Equal(11, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Kyrprax Medpac").Quantity);
             Assert.Equal(22, ingredients.GetIngredients().Single(i => i.Item.Name == "Premium Curious Cell Graft").Quantity);
