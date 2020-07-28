@@ -6,32 +6,31 @@ namespace SwtorCrafting
     {
         public Recipe()
         {
-
         }
 
-        public Recipe(string name)
+        public Recipe(Ingredient output)
         {
-            this.Name = name;
+            this.Output = output;
         }
 
-        public Recipe(string name, IEnumerable<Ingredient> ingredients)
+        public Recipe(IEnumerable<Ingredient> inputs, Ingredient output)
+            : this(output)
         {
-            this.Name = name;
-            this.Ingredients = new Ingredients();
-            foreach (var ingredient in ingredients)
+            this.Inputs = new Ingredients();
+            foreach (var input in inputs)
             {
-                this.Ingredients.AddIngredient(ingredient);
+                this.Inputs.AddIngredient(input);
             }
         }
         
-        public Recipe(string name, Ingredients ingredients)
+        public Recipe(Ingredients inputs, Ingredient output)
+            : this(output)
         {
-            this.Name = name;
-            this.Ingredients = ingredients;
+            this.Inputs = inputs;
         }
 
-        public Ingredients Ingredients { get; set; }
+        public Ingredients Inputs { get; set; }
 
-        public string Name { get; set; }
+        public Ingredient Output { get; set; }
     }
 }
